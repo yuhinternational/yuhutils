@@ -29,7 +29,7 @@ class ShareCoords : TabExecutor {
     override fun onTabComplete(commandSender: CommandSender, command: Command, s: String, args: Array<String>): List<String>? {
         if (args.size == 1) {
 
-            return getPlayerNames()
+            return null
         }
         return null
     }

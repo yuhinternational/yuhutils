@@ -37,6 +37,7 @@ class RequestCoords : TabExecutor {
                         message.hoverEvent = HoverEvent(HoverEvent.Action.SHOW_TEXT,
                                 ComponentBuilder("Are you sure you want to share your coordinates with this player?").color(ChatColor.DARK_RED).italic(true).create())
                         target.spigot().sendMessage(message)
+                        cooldowns.put(sender, System.currentTimeMillis())
                     }
                 } else {
                     sender.sendMessage("No player specified to send the data to.")
@@ -51,7 +52,7 @@ class RequestCoords : TabExecutor {
     override fun onTabComplete(commandSender: CommandSender, command: Command, s: String, args: Array<String>): List<String>? {
         if (args.size == 1) {
 
-            return getPlayerNames()
+            return null
         }
         return null
     }
